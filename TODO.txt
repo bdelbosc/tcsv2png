@@ -1,0 +1,3 @@
+* add --title option
+* set default title to the data file name
+* use all columns if no parameters

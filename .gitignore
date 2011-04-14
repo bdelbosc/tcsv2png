@@ -1,0 +1,11 @@
+syntax:glob
+
+dist
+build
+doc/*.html
+*.pyc
+*.swp
+.#*
+*~
+tcsv2png.egg-info/
+test.csv
