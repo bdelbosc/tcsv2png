@@ -4,35 +4,47 @@ tcsv2png
 
 NAME
 ----
-	tcsv2png - data visualization of csv data with a time column.
+tcsv2png - data visualization of csv data with a time column.
 
 SYNPSIS
 -------
-	tcsv2png [Options] CSV_FILE [COL0 [COLi ...]]
+
+::
+
+  tcsv2png [Options] CSV_FILE [COL0 [COLi ...]]
+
+
 
 DESCRIPTION 
 -----------
-	tcsv2png uses gnuplot to convert a csv file with a time column
-	format %H:%m:%S into a chart in png format.
+tcsv2png uses gnuplot to convert a csv file with a time column
+format %H:%m:%S into a chart in png format.
 
-	It scales the data to show all of the data sets in the same
-	png chart.
+It scales the data to show all of the data sets in the same
+png chart.
 
-        You can select the columns of interest. The tool uses gnuplot
-        to generate the chart, so you can customize the script to your
-        need.
+You can select the columns of interest. The tool uses gnuplot
+to generate the chart, so you can customize the script to your
+need.
 
-        CSV_FILE: a csv file with TAB fields separator
-        COL0:     the column indice that contains the time formated H:M:S
-        COLi:     column indice to plot
+CSV_FILE: a csv file with TAB or semicolon fields separator
+COL0:     the column indice that contains the time formated H:M:S
+COLi:     column indice to plot
 
-        Note that column indice starts with 0 and that the first line
-        should contains columns headers.
+Note that column indice starts with 0 and that the first line
+should contains columns headers.
 
 
 REQUIRES
 --------
-   tcsv2png requires `gnuplot <http://www.gnuplot.info/>`_.
+tcsv2png requires `gnuplot <http://www.gnuplot.info/>`_.
+
+
+INSTALLATION
+------------
+::
+
+   sudo easy_install tcsv2png
 
 
 EXAMPLES
