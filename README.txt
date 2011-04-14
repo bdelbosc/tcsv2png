@@ -50,6 +50,9 @@ INSTALLATION
 EXAMPLES
 --------
 
+  You can view some screenshots in the `tcsv2png wiki
+  <https://github.com/bdelbosc/tcsv2png/wiki>`_
+
   tcsv2png data.csv 
           Creates data.png file with all the columns, assuming
           column 0 is the time column.
