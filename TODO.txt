@@ -1,3 +1,7 @@
-* add --title option
-* set default title to the data file name
-* use all columns if no parameters
+#    -*- mode: org -*-
+#+TITLE: tcsv2png to do list
+#+AUTHOR: Benoit Delbosc
+
+* Org-mode support
+* Add a --noscale option
+* Add a --size option
