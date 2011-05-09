@@ -5,3 +5,5 @@
 * Org-mode support
 * Add a --noscale option
 * Add a --size option
+* Add a delta derivated mode
+  render the derived instead of the value

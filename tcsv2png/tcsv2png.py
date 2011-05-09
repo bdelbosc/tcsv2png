@@ -30,10 +30,10 @@ from optparse import OptionParser, TitledHelpFormatter
 USAGE = """tcsv2png [Options] CSV_FILE [COL0 [COLi ...]]
 
         tcsv2png uses gnuplot to convert a csv file with a time column
-	format %H:%m:%S into a chart in png format.
+        format %H:%m:%S into a chart in png format.
 
-	It scales the data to show all of the data sets in the same
-	png chart.
+        It scales the data to show all of the data sets in the same
+        png chart.
 
         You can select the columns of interest. The tool uses gnuplot
         to generate the chart, so you can customize the script to your
@@ -48,18 +48,19 @@ USAGE = """tcsv2png [Options] CSV_FILE [COL0 [COLi ...]]
 
 Examples
 ========
-  tcsv2png data.csv 
+  tcsv2png data.csv
           Creates data.png file with all the columns, assuming
           column 0 is the time column.
 
   tcsv2png -v -c -t "Foo title" -o foo.png  data.csv 0 3 5
           Creates foo.png chart with "Foo title" title, column 0 is
-	  the time column, plotting column 3 and 5 using smooth
-	  csplines rendering.
+          the time column, plotting column 3 and 5 using smooth
+          csplines rendering.
 
   tcsv2png -h
           Gives you the available options.
 """
+
 
 def get_version():
     """Retrun the FunkLoad package version."""
@@ -72,7 +73,7 @@ def command(cmd, do_raise=True, verbose=False):
     extra = 'LC_ALL=C '
     if verbose:
         print('Run: ' + extra + cmd)
-    status, output = getstatusoutput(extra +cmd)
+    status, output = getstatusoutput(extra + cmd)
     if status:
         if do_raise:
             print('ERROR: [%s] return status: [%d], output: [%s]' %
@@ -85,6 +86,7 @@ def command(cmd, do_raise=True, verbose=False):
         output = output.split('\n')
     return (status, output)
 
+
 def to_float(text):
     """Filter input to float format."""
     if text == 'Infinity':
@@ -95,6 +97,7 @@ def to_float(text):
     except ValueError:
         x = 0
     return x
+
 
 def scale(s):
     if not s:
@@ -112,6 +115,7 @@ def scale(s):
     if (int(ret) == ret):
         return int(ret)
     return ret
+
 
 class GnuPlotScript:
     csv_path = None
@@ -146,7 +150,7 @@ cd "%s"
         self.tmp_dir = tmp_dir
         self.script_path = os.path.join(tmp_dir, 'script.gplot')
         self.script_file = open(self.script_path, "w")
-        self.script_file.write(self.script_header_tpl % (self.png_path, 
+        self.script_file.write(self.script_header_tpl % (self.png_path,
                                                          options.title,
                                                          tmp_dir))
         if options.bezier:
@@ -214,10 +218,10 @@ cd "%s"
             lines.append(self.script_line_tpl % (data_path,
                                                  cols[0] + 1,
                                                  scale(maxes[i]), i + 2,
-                                                 scale(maxes[i]), title, 
+                                                 scale(maxes[i]), title,
                                                  self.smooth))
             i += 1
-        script_file.write('plot '+ ','.join(lines) + '\n')
+        script_file.write('plot ' + ','.join(lines) + '\n')
         script_file.close()
         command("gnuplot %s" % self.script_path, self.verbose)
         print "%s done." % os.path.abspath(self.png_path)
@@ -230,9 +234,9 @@ def main():
                           version="tcsv2png %s" % get_version())
     parser.add_option("-v", "--verbose", action="store_true",
                       help="Verbose output")
-    parser.add_option("-o", "--output", type="string", 
+    parser.add_option("-o", "--output", type="string",
                       help="PNG output file")
-    parser.add_option("-t", "--title", type="string", 
+    parser.add_option("-t", "--title", type="string",
                       help="Chart title")
     parser.add_option("-b", "--bezier", action="store_true",
                       help="Smooth bezier")

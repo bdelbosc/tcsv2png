@@ -17,15 +17,15 @@ SYNPSIS
 
 DESCRIPTION 
 -----------
+
 tcsv2png uses gnuplot to convert a csv file with a time column
-format %H:%m:%S into a chart in png format.
+(HH:MM:SS format) into a png chart. 
 
-It scales the data to show all of the data sets in the same
-png chart.
+It scales the data to show all of the data sets in the same png
+chart. 
 
-You can select the columns of interest. The tool uses gnuplot
-to generate the chart, so you can customize the script to your
-need.
+You can select the columns of interest. You can customize the
+generated gnuplot script to your need.
 
 CSV_FILE: a csv file with TAB or semicolon fields separator
 COL0:     the column indice that contains the time formated H:M:S
